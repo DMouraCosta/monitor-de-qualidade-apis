@@ -1,0 +1,1 @@
+# Configuração do banco (MongoDB ou SQLite)

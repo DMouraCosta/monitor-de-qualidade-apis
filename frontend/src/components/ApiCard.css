@@ -1,0 +1,42 @@
+.card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  width: 270px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: relative;
+  background-color: #fff;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card.online {
+  border-left: 6px solid #2ecc71;
+}
+
+.card.offline {
+  border-left: 6px solid #e74c3c;
+}
+
+.card p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  color: red;
+}

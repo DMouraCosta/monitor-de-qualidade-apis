@@ -1,0 +1,38 @@
+:root {
+  --bg: #ffffff;
+  --text: #333;
+  --card-bg: #fff;
+  --card-border: #ddd;
+  --primary: #2e86de;
+}
+
+body.dark {
+  --bg: #121212;
+  --text: #f1f1f1;
+  --card-bg: #1e1e1e;
+  --card-border: #333;
+  --primary: #2980b9;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.app-container {
+  background-color: var(--card-bg);
+  color: var(--text);
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-color: var(--card-border);
+  color: var(--text);
+}
+
+.input-area input,
+.input-area button {
+  background-color: var(--card-bg);
+  color: var(--text);
+  border-color: var(--card-border);
+}
