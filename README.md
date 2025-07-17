@@ -104,14 +104,6 @@ Os testes cobrem:
 - 🔗 **Frontend (Vercel)**: 
 - 🔗 **Backend (Render)**: 
 
-> Substitua os links pelos seus reais após o deploy.
-
----
-
-## 🤝 Contribuição
-
-Pull requests são bem-vindos. Sinta-se à vontade para sugerir melhorias ou abrir issues!
-
 ---
 
 ## 📃 Licença
