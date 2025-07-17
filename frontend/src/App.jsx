@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
+
 import axios from 'axios';
+
 import './App.css';
 import './theme.css';
+
+import ThemeToggle from './components/ThemeToggle';
 import ApiCard from './components/ApiCard'
 import TempoRespostaGrafico from './components/TempoRespostaGrafico';
 import StatusApisGrafico from './components/StatusApisGrafico';
@@ -66,26 +70,9 @@ function App() {
   }, [urls]);
 
   return (
-    <div className="app-container">
+    <div className="app-container fade-in">
 
-      <button
-        onClick={() => {
-          document.body.classList.toggle('dark');
-        }}
-        style={{
-          position: 'absolute',
-          right: '1rem',
-          top: '1rem',
-          padding: '0.4rem 0.8rem',
-          borderRadius: '6px',
-          backgroundColor: '#444',
-          color: '#fff',
-          border: 'none',
-          cursor: 'pointer'
-        }}
-      >
-        🌙 Modo Escuro
-      </button>
+      <ThemeToggle />
 
 
       <h1>🔍 Monitor de Qualidade de APIs</h1>
@@ -98,7 +85,7 @@ function App() {
           placeholder="https://exemplo.com/api"
           className={erroURL ? 'input-error' : ''}
         />
-        <button onClick={adicionarURL}>➕ Adicionar API</button>
+        <button onClick={adicionarURL}><img className="adicionar" src="../src/assets/images/add.png" alt="adicionar api" /> Adicionar API</button>
         {erroURL && <p className="error-text">{erroURL}</p>}
       </div>
 

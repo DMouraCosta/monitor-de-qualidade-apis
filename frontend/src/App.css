@@ -1,3 +1,18 @@
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 body {
   display: flex;
@@ -42,6 +57,13 @@ h1 {
 }
 
 .input-area button {
+  width: 300px;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   padding: 0.6rem;
   background-color: #2e86de;
   color: white;
@@ -52,8 +74,12 @@ h1 {
   transition: 0.3s ease;
 }
 
+.adicionar{
+  width: 15px;
+}
+
 .input-area button:hover {
-  background-color: #1b4f72;
+  background-color: #53ee5a;
 }
 
 .error-text {

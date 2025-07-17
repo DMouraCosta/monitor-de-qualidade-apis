@@ -1,9 +1,11 @@
 .card {
+  display: flex;
+  flex-direction: column;
   border: 1px solid #ddd;
   padding: 1rem;
   width: 270px;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   position: relative;
   background-color: #fff;
   transition: transform 0.2s;
@@ -27,16 +29,36 @@
 }
 
 .remove-btn {
-  position: absolute;
-  top: 6px;
-  right: 8px;
+  align-self: flex-end;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 50px;
   background: transparent;
   border: none;
   font-size: 1.2rem;
-  color: #aaa;
   cursor: pointer;
+  align-items: center;
+}
+
+.remove-btn img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
 }
 
 .remove-btn:hover {
-  color: red;
+  background-color: #ddd;
+}
+
+.remove-btn img:hover {
+  transform: scale(1.05);
+}
+
+.api-url {
+  word-break: break-all;
+  /* força quebra em qualquer ponto */
+  white-space: normal;
 }
