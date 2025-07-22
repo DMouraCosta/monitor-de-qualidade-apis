@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
-
 import axios from 'axios';
 
 import './App.css';
 import './theme.css';
 
 import ThemeToggle from './components/ThemeToggle';
-import ApiCard from './components/ApiCard'
+import ApiCard from './components/ApiCard';
 import TempoRespostaGrafico from './components/TempoRespostaGrafico';
 import StatusApisGrafico from './components/StatusApisGrafico';
+
+import { exportarParaDocx } from './utils/exportarDocx';
+
 
 function App() {
   const [urlInput, setUrlInput] = useState('');
@@ -16,6 +18,7 @@ function App() {
   const [resultados, setResultados] = useState([]);
   const [carregando, setCarregando] = useState(false);
   const [erroURL, setErroURL] = useState('');
+  const [inicializado, setInicializado] = useState(false);
 
   const urlValida = (url) => /^https?:\/\/[^ "]+$/.test(url);
 
@@ -30,14 +33,14 @@ function App() {
       return;
     }
 
-    setUrls(prev => [...prev, url]);
+    setUrls((prev) => [...prev, url]);
     setUrlInput('');
     setErroURL('');
   };
 
   const removerURL = (urlRemover) => {
-    setUrls(prev => prev.filter(url => url !== urlRemover));
-    setResultados(prev => prev.filter(api => api.url !== urlRemover));
+    setUrls((prev) => prev.filter((url) => url !== urlRemover));
+    setResultados((prev) => prev.filter((api) => api.url !== urlRemover));
   };
 
   const verificarTodasAPIs = async () => {
@@ -63,17 +66,40 @@ function App() {
     setCarregando(false);
   };
 
+
   useEffect(() => {
-    if (urls.length > 0) {
+    const urlsSalvas = localStorage.getItem('apisSalvas');
+    const resultadosSalvos = localStorage.getItem('resultadosSalvos');
+
+    if (urlsSalvas) {
+      setUrls(JSON.parse(urlsSalvas));
+    }
+
+    if (resultadosSalvos) {
+      setResultados(JSON.parse(resultadosSalvos));
+    }
+
+    setInicializado(true);
+  }, []);
+
+
+  useEffect(() => {
+    if (inicializado) {
+      localStorage.setItem('apisSalvas', JSON.stringify(urls));
+      localStorage.setItem('resultadosSalvos', JSON.stringify(resultados));
+    }
+  }, [urls, resultados, inicializado]);
+
+
+  useEffect(() => {
+    if (inicializado && urls.length > 0) {
       verificarTodasAPIs();
     }
-  }, [urls]);
+  }, [urls, inicializado]);
 
   return (
     <div className="app-container fade-in">
-
       <ThemeToggle />
-
 
       <h1>🔍 Monitor de Qualidade de APIs</h1>
 
@@ -85,7 +111,9 @@ function App() {
           placeholder="https://exemplo.com/api"
           className={erroURL ? 'input-error' : ''}
         />
-        <button onClick={adicionarURL}><img className="adicionar" src="../src/assets/images/add.png" alt="adicionar api" /> Adicionar API</button>
+        <button onClick={adicionarURL}>
+          <img className="adicionar" src="../src/assets/images/add.png" alt="adicionar api" /> Adicionar API
+        </button>
         {erroURL && <p className="error-text">{erroURL}</p>}
       </div>
 
@@ -96,10 +124,17 @@ function App() {
           <ApiCard key={index} api={api} onRemove={removerURL} />
         ))}
       </div>
+
       <TempoRespostaGrafico dados={resultados} />
       <StatusApisGrafico dados={resultados} />
 
+      <button onClick={() => exportarParaDocx(resultados)} className="btn-baixar" title="Baixar relatório">
+        <img src="../src/assets/images/download.png" alt="baixar relatório"/>
+      </button>
+
     </div>
+
+
   );
 }
 
