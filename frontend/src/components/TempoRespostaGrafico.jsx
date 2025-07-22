@@ -6,7 +6,7 @@ function TempoRespostaGrafico({ dados }) {
 
   return (
     <div style={{ marginTop: '2rem' }}>
-      <h2>📊 Tempo de Resposta das APIs (ms)</h2>
+      <h2> <img className="icone-grafico" src="../src/assets/images/grafico.png" alt="grafico tempo" /> Tempo de Resposta das APIs (ms)</h2>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={dados}>
           <CartesianGrid strokeDasharray="3 3" />

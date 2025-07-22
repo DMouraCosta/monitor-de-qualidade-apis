@@ -19,7 +19,7 @@ function StatusApisGrafico({ dados }) {
 
   return (
     <div style={{ marginTop: '2rem' }}>
-      <h2>📡 Status das APIs</h2>
+      <h2><img className="icone-grafico-status" src="../src/assets/images/antena.png" alt="grafico status" /> Status das APIs</h2>
       <ResponsiveContainer width="100%" height={300}>
         <PieChart>
           <Pie

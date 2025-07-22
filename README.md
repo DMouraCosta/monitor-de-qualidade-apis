@@ -115,5 +115,5 @@ MIT
 ## 👨‍💻 Autor
 
 Desenvolvido por **Dailson Costa**  
-🔗 [LinkedIn] linkedin.com/in/dailson-costa-13bb47239
-📂 [Portfólio] 
+🔗 [LinkedIn](linkedin.com/in/dailson-costa-13bb47239)
+📂 [Portfólio]() 
