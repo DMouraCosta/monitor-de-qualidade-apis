@@ -38,6 +38,17 @@ h1 {
   color: #333;
 }
 
+.icones-page{
+  width: 38px;
+}
+
+.carregando{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
 .input-area {
   display: flex;
   flex-direction: column;
@@ -105,6 +116,7 @@ h1 {
   color: #333;
   margin-top: 50px;
   margin-left: 730px;
+  width: 35%;
 }
 
 .btn-baixar img{
@@ -134,6 +146,9 @@ h1 {
   .input-area input,
   .input-area button {
     width: 100%;
+  }
+  .btn-baixar{
+    width: 10%;
   }
 }
 

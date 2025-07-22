@@ -101,7 +101,7 @@ function App() {
     <div className="app-container fade-in">
       <ThemeToggle />
 
-      <h1>🔍 Monitor de Qualidade de APIs</h1>
+      <h1> <img className="icones-page" src="../src/assets/images/lupa.png" alt="lupa" /> Monitor de Qualidade de APIs</h1>
 
       <div className="input-area">
         <input
@@ -117,7 +117,7 @@ function App() {
         {erroURL && <p className="error-text">{erroURL}</p>}
       </div>
 
-      {carregando && <p>🔄 Verificando APIs...</p>}
+      {carregando && <p className="carregando"> <img className="icones-page" src="../src/assets/images/api.gif" alt="lupa" /> Verificando APIs...</p>}
 
       <div className="cards-container">
         {resultados.map((api, index) => (

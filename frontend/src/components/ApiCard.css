@@ -28,6 +28,13 @@
   font-size: 0.95rem;
 }
 
+.status-api{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+}
+
 .remove-btn {
   align-self: flex-end;
   width: auto;
@@ -61,4 +68,10 @@
   word-break: break-all;
   /* força quebra em qualquer ponto */
   white-space: normal;
+}
+
+.status-icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
 }
