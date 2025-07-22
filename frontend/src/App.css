@@ -95,6 +95,27 @@ h1 {
   margin-bottom: 2rem;
 }
 
+.btn-baixar{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: transparent;
+  color: #333;
+  margin-top: 50px;
+  margin-left: 730px;
+}
+
+.btn-baixar img{
+  width: 30px;
+}
+
+.btn-baixar img:hover{
+  transform: scale(1.05);
+
+}
+
 @media (max-width: 600px) {
   .cards-container {
     flex-direction: column;

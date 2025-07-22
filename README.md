@@ -58,7 +58,7 @@ O sistema consiste em um frontend React (com Vite) e um backend em Node.js/Expre
 
 ```bash
 git clone https://github.com/DMouraCosta/monitor-de-qualidade-apis
-cd monitor-qualidade-apis
+cd monitor-de-qualidade-apis
 ```
 
 ### 2. Inicie o backend
@@ -66,7 +66,7 @@ cd monitor-qualidade-apis
 ```bash
 cd backend
 npm install
-npm start
+npm run dev
 ```
 
 O backend iniciará em `http://localhost:4000`.
@@ -115,5 +115,5 @@ MIT
 ## 👨‍💻 Autor
 
 Desenvolvido por **Dailson Costa**  
-🔗 [LinkedIn]
+🔗 [LinkedIn] linkedin.com/in/dailson-costa-13bb47239
 📂 [Portfólio] 
