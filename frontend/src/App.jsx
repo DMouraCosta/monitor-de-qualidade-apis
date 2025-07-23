@@ -23,20 +23,41 @@ function App() {
   const urlValida = (url) => /^https?:\/\/[^ "]+$/.test(url);
 
   const adicionarURL = () => {
-    const url = urlInput.trim();
-    if (!urlValida(url)) {
-      setErroURL('URL inválida. Use http:// ou https://');
-      return;
-    }
-    if (urls.includes(url)) {
-      setErroURL('Esta URL já está sendo monitorada.');
-      return;
+    if (!urlInput.trim()) return;
+
+    
+    const urlsSeparadas = urlInput
+      .split(/[\s,]+/)
+      .map(url => url.trim())
+      .filter(url => url !== '');
+
+    const urlsValidas = [];
+    const erros = [];
+
+    urlsSeparadas.forEach((url) => {
+      const regexURL = /^https?:\/\/[\w.-]+(\.[\w\.-]+)+[/\w\.\?\=\-]*$/;
+
+      if (regexURL.test(url) && !urls.includes(url)) {
+        urlsValidas.push(url);
+      } else {
+        erros.push(url);
+      }
+    });
+
+    if (urlsValidas.length > 0) {
+      const novasURLs = [...urls, ...urlsValidas];
+      setUrls(novasURLs);
     }
 
-    setUrls((prev) => [...prev, url]);
+    if (erros.length > 0) {
+      setErroURL(`URLs inválidas ou duplicadas: ${erros.join(', ')}`);
+    } else {
+      setErroURL('');
+    }
+
     setUrlInput('');
-    setErroURL('');
   };
+
 
   const removerURL = (urlRemover) => {
     setUrls((prev) => prev.filter((url) => url !== urlRemover));
@@ -108,7 +129,7 @@ function App() {
           type="text"
           value={urlInput}
           onChange={(e) => setUrlInput(e.target.value)}
-          placeholder="https://exemplo.com/api"
+          placeholder="Cole uma ou mais URLs separadas por vírgula, espaço ou nova linha"
           className={erroURL ? 'input-error' : ''}
         />
         <button onClick={adicionarURL}>
@@ -128,8 +149,8 @@ function App() {
       <TempoRespostaGrafico dados={resultados} />
       <StatusApisGrafico dados={resultados} />
 
-      <button onClick={() => exportarParaDocx(resultados)} className="btn-baixar" title="Baixar relatório">
-        <img src="../src/assets/images/download.png" alt="baixar relatório"/>
+      <button onClick={() => exportarParaDocx(resultados)} className="btn-baixar" title="Baixar relatório" data-cy="exportar-docx">
+        <img src="../src/assets/images/download.png" alt="baixar relatório" />
       </button>
 
     </div>

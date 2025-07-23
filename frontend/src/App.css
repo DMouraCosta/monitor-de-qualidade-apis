@@ -116,7 +116,7 @@ h1 {
   color: #333;
   margin-top: 50px;
   margin-left: 730px;
-  width: 35%;
+  width: 18%;
 }
 
 .btn-baixar img{
@@ -128,7 +128,24 @@ h1 {
 
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
+
+  body {
+    width: 100%;
+    height: auto;
+  }
+
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem; 
+  }
+
+  h1 {
+    font-size: 1.5rem; 
+  }
+
   .cards-container {
     flex-direction: column;
     align-items: center;
@@ -141,14 +158,26 @@ h1 {
 
   .input-area {
     flex-direction: column;
+    gap: 0.3rem; 
   }
 
   .input-area input,
   .input-area button {
-    width: 100%;
+    width: 95%;
+    font-size: 0.9rem; 
   }
-  .btn-baixar{
-    width: 10%;
+
+  .input-area button {
+    padding: 0.5rem;
+  }
+
+  .btn-baixar {
+    width: 80%;
+    margin-left: auto; 
+    margin-right: auto; 
+  }
+
+  .btn-baixar img {
+    width: 25px; 
   }
 }
-
